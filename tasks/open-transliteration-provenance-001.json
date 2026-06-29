@@ -1,0 +1,35 @@
+{
+  "id": "open-transliteration-provenance-001",
+  "title": "Build open/PD source provenance allow-list with per-source license terms",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "linguistics", "i18n", "licensing"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "open-transliteration ships open, reversible, tested transliteration data between scripts. The authoritative scheme descriptions (ISO 9/233/15919, DIN 31635, ALA-LC) are copyrighted documents whose tables must NOT be copied; mapping facts are built instead from openly-licensed/public-domain sources (UNGEGN/UN romanization systems, BGN/PCGN and other US-gov works, Unicode CLDR/ICU transform data, open corpora). Nothing may be built into a scheme until its source is allow-listed with verified open/PD/CC/OFL terms.",
+  "objective": "Create a structured, per-source provenance allow-list recording each approved open/PD source's license terms, derivatives permission, required attribution, and a hash/archive snapshot, so each scheme's provenance and the license gate can be checked consistently — and so copyrighted standards are recorded as cite-only, never as copy sources.",
+  "acceptanceCriteria": [
+    "data/provenance/allow-list.yaml lists >= 4 sources with verified open/PD/CC/OFL terms (e.g., a UNGEGN system, a US-gov/BGN-PCGN work, Unicode CLDR/ICU data, an open corpus)",
+    "Each entry records: id, name, canonical URL, version/date, retrieval date, license name + URL, snapshot of license text, derivatives-allowed flag, required attribution string, notes",
+    "Each entry stores snapshotHash (SHA-256) and, where available, snapshotArchiveUrl (web-archive copy)",
+    "ISO/DIN/ALA-LC published tables are explicitly recorded as cite-only references and excluded as copy sources",
+    "Each entry has verifiedBy and verifiedDate; any source with unclear or incompatible terms is marked excluded with a reason",
+    "File validates against provenanceSchema and passes CI structural checks"
+  ],
+  "resources": [
+    "C:/Users/jason/AppData/Local/Temp/claude/C--code-elyos/5eca0d44-6b8b-4c30-9696-37a524cb249a/scratchpad/plans/open-transliteration/PLAN.md",
+    "UNGEGN / UN romanization systems for geographical names",
+    "BGN/PCGN romanization systems (US-gov / Crown)",
+    "Unicode CLDR / ICU transform data (Unicode License)",
+    "Open/PD corpora: UDHR translations, Wikisource PD texts"
+  ],
+  "output": "data/provenance/allow-list.yaml plus a short README documenting the allow-list schema and verification process",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
