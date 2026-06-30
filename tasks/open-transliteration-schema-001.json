@@ -1,0 +1,35 @@
+{
+  "id": "open-transliteration-schema-001",
+  "title": "JSON Schemas for mappingScheme, mappingRule, provenance, and review artifacts (+ CI validation)",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "schema", "engineering", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "open-transliteration needs machine-readable, validated data artifacts for mapping schemes, individual rules, source provenance entries, and per-scheme review records. These schemas live in packages/schema alongside the existing taskSchema/registrySchema and are the validation backbone for every downstream scheme task. Without them, no data task can have a CI gate.",
+  "objective": "Author and export AJV draft-07 JSON Schemas — mappingSchemeSchema, mappingRuleSchema, provenanceSchema, reviewSchema — in packages/schema/src, compiled and exported identically to the existing taskSchema, with CI validation wired so any invalid scheme data or provenance entry fails the build immediately.",
+  "acceptanceCriteria": [
+    "packages/schema/src exports mappingSchemeSchema, mappingRuleSchema, provenanceSchema, and reviewSchema (AJV draft-07, additionalProperties: false on all top-level objects)",
+    "mappingSchemeSchema requires: id, name, sourceScript (ISO 15924), targetScript (ISO 15924), direction (bidirectional|forward|inverse), reversibility (strict|normalized|lossy), normalizationForm, provenanceRefs (string[]), license, rules (array of mappingRule), and lossReport (null or string)",
+    "mappingRuleSchema requires: from, to, and reversibleInverse (boolean); allows optional contextBefore and contextAfter",
+    "provenanceSchema requires: id, name, url, version, retrievalDate, licenseName, licenseUrl, licenseTextSnapshot, derivativesAllowed (boolean), attributionString, snapshotHash (SHA-256 hex), and verifiedBy/verifiedDate; allows optional snapshotArchiveUrl and notes; allows status: excluded with excludedReason",
+    "reviewSchema requires: schemeId, reviewerName, reviewDate, coiDeclaration, verdict (approved|rejected|conditional), and agentFlags (array of {flag, type, status, resolution?})",
+    "pnpm build && pnpm test passes with schemas compiled to dist/; pnpm lint passes",
+    "A minimal smoke-test validates one valid and one invalid instance per schema in CI"
+  ],
+  "resources": [
+    "PLAN.md — Solution approach & architecture (packages/schema, data model)",
+    "TASKS.md — field mapping section",
+    "packages/schema/src/schemas.ts — existing taskSchema pattern to follow",
+    "https://ajv.js.org/json-schema.html — AJV draft-07 reference"
+  ],
+  "output": "packages/schema/src additions for the four new schemas; updated dist/ exports; smoke-test file in packages/schema/src/__tests__/ or similar",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

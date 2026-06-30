@@ -1,0 +1,37 @@
+{
+  "id": "open-transliteration-harness-001",
+  "title": "Round-trip test harness: property-based tests, golden vectors, and open-corpus round-trip",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "engineering", "testing", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Reversibility is a tested property, not a marketing assertion. The harness proves round-trip fidelity using three independent methods: (1) golden vectors (curated input/output pairs from open authoritative examples), (2) property-based round-trip tests using fast-check over the script's Unicode ranges, and (3) open-corpus round-trip tests using a PD/CC corpus. For strict schemes the test asserts reverse(forward(s)) == NFC(s) for every input; the harness must fail CI on any regression. This harness is the trust foundation for all subsequent scheme data tasks.",
+  "objective": "Build a test harness in the pnpm test pipeline that: loads golden vectors from data/vectors/<scheme-id>/, runs property-based round-trip tests (fast-check) over Unicode ranges for each scheme's source script, runs open-corpus round-trip tests on a PD/CC corpus, and asserts reverse(forward(s)) == NFC(s) for strict schemes. For normalized schemes, asserts round-trip equality up to the documented normalization contract. Does NOT assert round-trip equality for lossy schemes (only runs a loss-report smoke check).",
+  "acceptanceCriteria": [
+    "Golden-vector runner: loads data/vectors/<scheme-id>/*.yaml (or .json), runs each input through the engine, asserts output matches expected; failures are reported per-vector with clear diff",
+    "Property-based round-trip (fast-check): generates valid grapheme sequences over the scheme's source-script Unicode ranges and asserts reverse(forward(s)) == NFC(s) for strict schemes; runs at least 1,000 generated cases per scheme",
+    "Open-corpus round-trip: runs a PD/CC corpus file (e.g., UDHR translation or Wikisource excerpt) through forward+inverse and asserts recovery per scheme class; corpus file(s) stored in data/corpora/ with license attribution",
+    "For normalized schemes: round-trip asserts equality up to the declared normalization contract (documented per scheme), not byte-identity",
+    "For lossy schemes: harness does NOT assert round-trip equality; instead runs a smoke check that a loss report exists and is non-empty",
+    "All harness failures exit non-zero and print actionable diagnostics; integrated into pnpm test",
+    "pnpm build && pnpm test && pnpm lint passes (with at least one stub scheme/vector to exercise the harness paths)"
+  ],
+  "resources": [
+    "PLAN.md — Reversibility section (three proof methods); Success metrics (round-trip fidelity definition)",
+    "TASKS.md — harness-001 acceptance criteria",
+    "tasks/open-transliteration-engine-001.json",
+    "tasks/open-transliteration-checker-001.json",
+    "https://github.com/dubzzz/fast-check — property-based testing library",
+    "UDHR translations (PD): https://www.unicode.org/udhr/"
+  ],
+  "output": "packages/core/src/harness/ or packages/harness/ test runner; data/corpora/ with at least one PD corpus excerpt and license file; integration in pnpm test",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

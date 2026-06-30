@@ -1,0 +1,34 @@
+{
+  "id": "open-transliteration-maint-001",
+  "title": "Source re-verification and scheme maintenance cadence documentation",
+  "project": "open-transliteration",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["transliteration", "maintenance", "licensing", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "After schemes are released, the provenance allow-list and scheme data must be kept current. A source's license can change (making the scheme's provenance incompatible), or a source's content can drift (making the scheme's mapping subtly incorrect). The maintenance cadence defines how frequently sources are re-verified, who owns each re-verification, what happens when a source becomes incompatible, and how scheme data is updated or withdrawn. Without this, the project's license discipline degrades silently over time.",
+  "objective": "Write a source re-verification and scheme maintenance cadence document (docs/maintenance/cadence.md) defining: how frequently allow-listed sources are re-verified (annual minimum), who owns each re-verification, what happens if a source's license becomes incompatible (flagged by watcher-002, scheme withdrawn or rebuilt from alternative open sources), the scheme update/withdrawal process, and the overall maintenance schedule.",
+  "acceptanceCriteria": [
+    "docs/maintenance/cadence.md defines the source re-verification cadence: at minimum annually, or triggered by a CHANGED result from the automated watcher-002",
+    "Document defines the re-verification process: who re-verifies (maintainer or delegate), what is checked (license text vs. stored snapshot, terms change, URL still resolves), and how the allow-list is updated",
+    "Document defines the response to a license incompatibility: scheme flagged in a tracking issue, adopters notified per data-contract.md policy, scheme rebuilt from alternative open source or withdrawn if no alternative exists",
+    "Document defines the scheme maintenance process: how mapping errors discovered post-release are triaged (severity: critical blocks next release), how corrections are versioned, and how adopters are notified",
+    "Document is owned by the maintainer/steward, reviewed annually, and linked from CONTRIBUTING.md and PLAN.md sustainability section"
+  ],
+  "resources": [
+    "PLAN.md — Sustainability & maintenance; Security & privacy (supply-chain)",
+    "TASKS.md — maint-001 description",
+    "tasks/open-transliteration-provenance-001.json",
+    "tasks/open-transliteration-watcher-002.json",
+    "tasks/open-transliteration-contract-001.json"
+  ],
+  "output": "docs/maintenance/cadence.md defining source re-verification cadence, re-verification process, license-incompatibility response, scheme maintenance/withdrawal process, and ownership",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

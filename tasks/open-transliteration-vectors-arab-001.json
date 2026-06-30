@@ -1,0 +1,36 @@
+{
+  "id": "open-transliteration-vectors-arab-001",
+  "title": "Golden test vectors and loss report for Arabic ↔ Latin scheme",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["transliteration", "testing", "arabic", "i18n"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Arabic golden vectors must cover both the vocalized mode (all diacritics present — round-trip provable) and the unvocalized mode (round-trip not claimed — loss report enumerates what is dropped). Hard cases include sun/moon letter assimilation, hamza/madda forms, ta marbuta in construct vs. final position, shadda gemination, and Arabic-Indic digits. All examples are neutral/PD text from open authoritative sources; no personal names.",
+  "objective": "Create at least 50 golden test vector pairs for the Arabic ↔ Latin (arab-latn-iso233) scheme from open/PD authoritative examples, covering both vocalized and unvocalized input, plus a loss report enumerating what is dropped for unvocalized text. Store in data/vectors/arab-latn-iso233/ and data/loss-reports/arab-latn-iso233.md.",
+  "acceptanceCriteria": [
+    "data/vectors/arab-latn-iso233/ contains >= 50 test vector pairs: >= 25 fully-vocalized (harakat present) for round-trip assertion, and >= 25 unvocalized (for loss-report documentation only, not round-trip assertion)",
+    "Hard cases explicitly covered: sun/moon letter assimilation, hamza on alif/waw/ya/standalone, madda, ta marbuta (construct vs. final), shadda, Arabic-Indic digits (٠١٢٣), punctuation passthrough",
+    "Each vector records its provenance source (open/PD, from allow-list) and is neutral/PD text — no personal names or politically sensitive geographic names",
+    "data/loss-reports/arab-latn-iso233.md enumerates exactly what is dropped or unrecoverable in unvocalized mode (e.g., short vowels [fatha/kasra/damma], shadda context ambiguities); accurate and readable",
+    "Vocalized vectors pass the harness round-trip assertion in CI; unvocalized vectors trigger the loss-report smoke check only",
+    "Qualified Arabic reviewer confirms vector accuracy and loss report completeness"
+  ],
+  "resources": [
+    "PLAN.md — hard-case test inventory (Arabic items in Appendix A)",
+    "TASKS.md — vectors-arab-001 acceptance criteria",
+    "tasks/open-transliteration-scheme-arab-001.json",
+    "UDHR translations in Arabic script (unicode.org/udhr/)",
+    "UNGEGN sample word lists for Arabic geographical names",
+    "Wikisource PD texts in Arabic"
+  ],
+  "output": "data/vectors/arab-latn-iso233/ directory with >= 50 vector entries (>= 25 vocalized, >= 25 unvocalized); data/loss-reports/arab-latn-iso233.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

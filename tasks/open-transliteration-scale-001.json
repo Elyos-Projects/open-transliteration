@@ -1,0 +1,35 @@
+{
+  "id": "open-transliteration-scale-001",
+  "title": "Add further script pairs and additional schemes per pair beyond M0–M2 coverage",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["transliteration", "linguistics", "i18n", "data"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "M4 broadens coverage beyond the initial three script pairs (Cyrillic, Devanagari, Arabic). Additional script families from the backlog include Greek, Hebrew, Georgian, Armenian, Thai, Bengali, Tamil, and cross-script (non-Latin) transforms. Each new script pair requires its own provenance check, qualified per-script reviewer, reversibility analysis, and harness integration. Prioritization follows the rule: secured adopter need > clean open/PD provenance > reviewer availability > under-served population size.",
+  "objective": "Add at least one additional script pair (selected from: Greek, Hebrew, Georgian, Armenian, Thai, Bengali, Tamil ↔ Latin, or a cross-script pair) following the complete M0–M2 process for that pair: license/provenance check, scheme authoring, golden vectors, harness integration, qualified reviewer sign-off. Each pair is scoped, provenance-checked, and reviewed independently.",
+  "acceptanceCriteria": [
+    "At least one new script pair added beyond Cyrillic/Devanagari/Arabic, selected per the prioritization rule: secured adopter need > clean open/PD provenance > reviewer availability > under-served population size",
+    "New scheme follows the full M0–M2 process: license/provenance gate confirmed before authoring, scheme validates against mappingSchemeSchema, reversibility class correctly tagged and enforced by checker, golden vectors (>= 50), harness green in CI",
+    "Qualified per-script reviewer (+ second reviewer if strict claim or first in family) sign-off recorded",
+    "Provenance allow-list updated with new sources specific to the added script pair; sources have verified open/PD/CC/OFL terms",
+    "Per-scheme docs written with the not-certified disclaimer",
+    "If a cross-script (non-Latin↔non-Latin) pair is added: reversibility analysis across the composition chain is documented; no false strict claims for the composed pair"
+  ],
+  "resources": [
+    "PLAN.md — M4 definition; Scope (prioritization rule); Backlog/future (candidate script families)",
+    "TASKS.md — scale-001 description and M4 acceptance criteria",
+    "tasks/open-transliteration-integration-001.json — adopter input on which pairs to prioritize",
+    "UNGEGN systems for additional script families",
+    "Unicode CLDR / ICU transform data for additional scripts"
+  ],
+  "output": "data/schemes/<new-scheme-id>.yaml (+ compiled JSON); data/vectors/<new-scheme-id>/ golden vectors; data/review/<new-scheme-id>.yaml; updated provenance allow-list; per-scheme docs",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

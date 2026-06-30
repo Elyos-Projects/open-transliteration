@@ -1,0 +1,34 @@
+{
+  "id": "open-transliteration-watcher-001",
+  "title": "Minimal source-change re-fetch check (hash-diff) for provenance allow-list sources",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "engineering", "licensing", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The provenance allow-list pins each source with a SHA-256 snapshotHash. If a source's license or content changes after the snapshot, the project may unknowingly be using a now-incompatible source. A minimal hash-diff check — manually triggered in M0, automated in M1 (watcher-002) — re-fetches each allow-listed source URL and compares the content hash to the pinned value, flagging any drift for maintainer review. This keeps the supply chain auditable.",
+  "objective": "Implement a minimal, manually-runnable script (scripts/check-sources.ts or similar) that reads data/provenance/allow-list.yaml, re-fetches each entry's canonical URL, computes the SHA-256 of the retrieved content, compares it to the stored snapshotHash, and prints a diff report (MATCH | CHANGED | UNREACHABLE per entry). Does not auto-update; flags only. Will be automated in watcher-002.",
+  "acceptanceCriteria": [
+    "scripts/check-sources.ts (or .js) reads data/provenance/allow-list.yaml and, for each entry with a url and snapshotHash, fetches the URL and computes SHA-256 of the response body",
+    "Outputs a per-source report: MATCH (hash matches stored value), CHANGED (hash differs — prints both hashes), or UNREACHABLE (fetch failed — prints error)",
+    "Exits non-zero if any entry is CHANGED or UNREACHABLE, so a maintainer can spot drift",
+    "Script is runnable standalone (node scripts/check-sources.js or pnpm run check-sources) and documented in a brief README note",
+    "Does NOT auto-update allow-list.yaml; flags only — a human reviews and decides",
+    "pnpm build && pnpm lint passes; script added to package.json scripts as check-sources"
+  ],
+  "resources": [
+    "PLAN.md — Security & privacy (supply-chain; hash/archive snapshots; source-change watcher)",
+    "TASKS.md — watcher-001 description",
+    "tasks/open-transliteration-provenance-001.json",
+    "tasks/open-transliteration-schema-001.json"
+  ],
+  "output": "scripts/check-sources.ts (compiled) + entry in package.json scripts; brief usage note in CONTRIBUTING.md or a scripts/README.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

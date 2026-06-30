@@ -1,0 +1,34 @@
+{
+  "id": "open-transliteration-license-001",
+  "title": "License/provenance check tooling: lint schemes against allow-list and enforce in CI",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "licensing", "engineering", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "As the number of schemes grows, manual license checks become error-prone. Automated tooling ensures that every scheme's provenanceRefs resolve to entries on the allow-list with verified open/PD/CC/OFL terms, and that no scheme references a copyrighted standard as a copy source. This tooling enforces the project's core identity — open + provenance-clean — at every commit. Without it, a reviewer mistake or a new contributor could accidentally ship a scheme with unverified provenance.",
+  "objective": "Implement a CI lint step (scripts/lint-provenance.ts or integrated into pnpm test) that: (1) loads all schemes in data/schemes/, (2) for each scheme checks that every provenanceRef id resolves to an entry in data/provenance/allow-list.yaml with derivativesAllowed: true and no status: excluded, (3) checks that the scheme's license field is compatible with the source licenses, and (4) fails CI with a clear error on any violation.",
+  "acceptanceCriteria": [
+    "Lint tool reads all data/schemes/*.yaml (or .json) files and validates each provenanceRef against data/provenance/allow-list.yaml",
+    "Fails CI (exits non-zero) if any provenanceRef id is not found on the allow-list",
+    "Fails CI if any allow-list entry referenced has derivativesAllowed: false or status: excluded (i.e., a copyrighted-table source is being used as a copy source)",
+    "Fails CI if a scheme's license is not compatible with its source licenses (basic compatibility check: CC-BY-4.0 data from open/CC/PD sources is compatible; flags any mismatch for human review)",
+    "Prints a human-readable error message identifying the scheme id, the problematic provenanceRef, and the reason for failure",
+    "Integrated into pnpm test so it runs on every PR; pnpm build && pnpm test && pnpm lint passes"
+  ],
+  "resources": [
+    "PLAN.md — Data, licensing & compliance; M1 license-001 acceptance criteria",
+    "TASKS.md — license-001 acceptance criteria",
+    "tasks/open-transliteration-schema-001.json",
+    "tasks/open-transliteration-provenance-001.json"
+  ],
+  "output": "scripts/lint-provenance.ts (or integrated pnpm test step); integration in package.json / CI; test cases covering valid and invalid scheme-provenance combinations",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

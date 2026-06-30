@@ -1,0 +1,32 @@
+{
+  "id": "open-transliteration-contract-001",
+  "title": "Stable data contract, semantic versioning, and deprecation policy for scheme datasets",
+  "project": "open-transliteration",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["transliteration", "engineering", "governance", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Mapping data is an API: adopters integrate specific schemes and depend on their stability. Without a declared versioning and deprecation policy, any change to a scheme can silently break downstream integrations. The data contract defines what constitutes a breaking change (adding/removing/modifying a rule, changing reversibility class), the semantic versioning scheme for data releases, the deprecation notice period, and how adopters are notified of changes.",
+  "objective": "Write a data contract specification (docs/data-contract.md or equivalent) defining: the stable schema version interface (which fields are guaranteed stable), semantic versioning for scheme datasets (major.minor.patch semantics for data), what constitutes a breaking vs. non-breaking change, the deprecation notice period and process, and how adopters are notified of changes.",
+  "acceptanceCriteria": [
+    "docs/data-contract.md (or equivalent) defines the stable interface for scheme datasets: which mappingSchemeSchema fields are part of the public contract and which are internal",
+    "Document defines semantic versioning for scheme data: major = breaking (rule changes, reversibility class change, removed fields); minor = additive (new rules, new metadata fields); patch = non-breaking fixes (typos, provenance corrections)",
+    "Document specifies a deprecation notice period (minimum notice before removing or breaking a scheme version) appropriate for downstream integrators",
+    "Document specifies how adopters are notified of breaking changes (GitHub releases, CHANGELOG, migration guides)",
+    "Document is reviewed and approved by the steward and acting maintainer before M3 proceeds; linked from README.md and data/schemes/README.md"
+  ],
+  "resources": [
+    "PLAN.md — Sustainability & maintenance (semantic versioning + deprecation policy); M3 definition",
+    "TASKS.md — contract-001 acceptance criteria",
+    "tasks/open-transliteration-adopter-001.json"
+  ],
+  "output": "docs/data-contract.md defining stable interface, semantic versioning, breaking-change policy, deprecation notice period, and adopter notification process",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

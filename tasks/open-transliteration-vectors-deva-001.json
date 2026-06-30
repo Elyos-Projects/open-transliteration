@@ -1,0 +1,35 @@
+{
+  "id": "open-transliteration-vectors-deva-001",
+  "title": "Golden test vectors and loss report for Devanagari ↔ Latin scheme",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "testing", "devanagari", "i18n"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Golden vectors for Devanagari must cover the full complexity of the script: virama/conjunct sequences, anusvara/visarga, nukta, schwa handling, Devanagari digits, and the documented normalization contract. The loss report is a required artifact for any normalized or lossy scheme, enumerating exactly what information is dropped relative to the original input. All examples are neutral/PD text from open authoritative sources; no real personal names.",
+  "objective": "Create at least 50 golden test vector pairs for the Devanagari ↔ Latin (deva-latn-iso15919) scheme from open/PD authoritative examples, plus a loss report enumerating exactly what (if anything) is normalized or dropped. Store in data/vectors/deva-latn-iso15919/ and data/loss-reports/deva-latn-iso15919.md.",
+  "acceptanceCriteria": [
+    "data/vectors/deva-latn-iso15919/ contains >= 50 test vector pairs covering: basic Devanagari consonant/vowel mappings, virama/conjunct sequences, anusvara/visarga/nukta, schwa handling, Devanagari digits (०१२३), punctuation passthrough, and NFC/NFD normalization edge cases",
+    "Each vector records its provenance source (open/PD, from allow-list) and is neutral/PD text — no real personal names",
+    "data/loss-reports/deva-latn-iso15919.md enumerates exactly what information is dropped or normalized by the scheme (e.g., schwa in specific positions, presentation-form variants), with examples; if nothing is dropped the report states that explicitly",
+    "All vectors pass the harness normalized round-trip assertion (equality up to the declared normalization contract) in CI",
+    "Qualified Devanagari reviewer confirms vector accuracy and loss report completeness"
+  ],
+  "resources": [
+    "PLAN.md — hard-case test inventory (Devanagari items in Appendix A); Success metrics",
+    "TASKS.md — vectors-deva-001 acceptance criteria",
+    "tasks/open-transliteration-scheme-deva-001.json",
+    "UDHR translations in Devanagari script (unicode.org/udhr/)",
+    "Wikisource PD texts in Hindi/Sanskrit/Marathi",
+    "UNGEGN sample word lists (geographical names in Devanagari)"
+  ],
+  "output": "data/vectors/deva-latn-iso15919/ directory with >= 50 vector entries; data/loss-reports/deva-latn-iso15919.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

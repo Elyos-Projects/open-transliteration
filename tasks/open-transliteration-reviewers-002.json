@@ -1,0 +1,33 @@
+{
+  "id": "open-transliteration-reviewers-002",
+  "title": "Recruit and engage at least 2 qualified per-script reviewers or a language organization",
+  "project": "open-transliteration",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "linguistics", "governance", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Every scheme requires a qualified per-script reviewer sign-off, and the first scheme in each new script family requires a second independent reviewer. Without reviewers secured, Devanagari and Arabic scheme tasks cannot proceed. Reviewers may be individuals (linguists, native script users with transliteration competence) or a language/translation organization. Reviewer availability is an explicit project risk (PLAN.md risks table).",
+  "objective": "Identify, contact, and confirm at least 2 qualified per-script reviewers (or an equivalent language/translation organization) willing to review Elyos open-transliteration schemes per the qualification criteria in reviewers-001. Record confirmed reviewers in docs/reviewers/roster.yaml with their script coverage, qualification basis, COI status, and contact/engagement terms.",
+  "acceptanceCriteria": [
+    "At least 2 named qualified reviewers confirmed (or 1 organization committing equivalent reviewer coverage) and recorded in docs/reviewers/roster.yaml",
+    "Each roster entry records: reviewer id, name (or org name), script(s) covered, qualification basis (native/near-native + linguistic competence), COI status, engagement terms (volunteer/paid/org-delegated), and confirmation date",
+    "Reviewers meet the criteria defined in reviewers-001 (native/near-native script command + linguistic/transliteration competence per script pair)",
+    "Outreach approach and candidate list documented (even if some candidates declined); named target types include: Wikimedia language-tool contributors, library/GLAM cataloguing professionals, NLP researchers, language-revitalization NGO staff, linguistics academics",
+    "Result recorded as a deliverable document: docs/reviewers/reviewer-engagement-report.md summarizing outreach, outcomes, and roster status"
+  ],
+  "resources": [
+    "PLAN.md — Governance section; Open questions (reviewer sourcing)",
+    "TASKS.md — reviewers-002 description",
+    "tasks/open-transliteration-reviewers-001.json — qualification criteria prerequisite",
+    "Candidate types: Wikimedia language tooling contributors, library/GLAM professionals, Unicode CLDR contributors, NLP researchers, language NGOs"
+  ],
+  "output": "docs/reviewers/roster.yaml (confirmed reviewers) and docs/reviewers/reviewer-engagement-report.md (outreach summary)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

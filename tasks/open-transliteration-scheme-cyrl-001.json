@@ -1,0 +1,41 @@
+{
+  "id": "open-transliteration-scheme-cyrl-001",
+  "title": "Cyrillic ↔ Latin mapping scheme (ISO 9 System A–conformant, strict bijection)",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "linguistics", "cyrillic", "i18n"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The first scheme is Cyrillic ↔ Latin, chosen because a strict bijection (ISO 9 System A–conformant) is achievable and lets the round-trip harness be proven on a clean case before tackling harder scripts. license-000 MUST pass before this task starts — no scheme may be authored until the open-buildability and license-compatibility check is confirmed in writing. The mapping is built from open/PD sources (UNGEGN, BGN/PCGN, Unicode CLDR/ICU), NOT copied from ISO 9 documents. ISO 9 is cited as a conformance reference only.",
+  "objective": "Author data/schemes/cyrl-latn-iso9a.yaml — a validated, provenance-tracked, strictly-reversible Cyrillic ↔ Latin mapping scheme — built entirely from open/PD sources, tagged reversibility: strict, conformsTo ISO 9 System A (cited, not copied), with collision/bijection checker confirming strict achievability, 100% round-trip on golden vectors + property tests + open corpus, and qualified Cyrillic reviewer (+ mandatory second reviewer for strict claim) sign-off recorded in the PR.",
+  "acceptanceCriteria": [
+    "license-000 is delivered and confirmed before any mapping data is authored for this task",
+    "data/schemes/cyrl-latn-iso9a.yaml (compiled to JSON) validates against mappingSchemeSchema; tagged reversibility: strict, normalizationForm: NFC, conformsTo citing ISO 9:1995 System A without copying its table",
+    "provenanceRefs resolve to entries on the allow-list with verified open/PD/CC/OFL terms; no entry references a copyrighted standard as a copy source",
+    "Collision/bijection checker confirms strict achievability (no many-to-one target collisions, no unresolvable context overlaps); checker is green in CI",
+    "100% round-trip (reverse(forward(s)) == NFC(s)) on: (a) golden vectors in data/vectors/cyrl-latn-iso9a/, (b) property-generated cases over the Cyrillic Unicode range (>= 1,000 cases), and (c) an open PD/CC Cyrillic corpus; all green in CI",
+    "Cyrillic case (upper/lower) and combining-mark edge cases explicitly tested; all test examples are neutral/PD text, no real personal names",
+    "UNCERTAIN: flags from the drafting agent are captured into data/review/cyrl-latn-iso9a.yaml as agentFlags; no sign-off recorded while any flag is unresolved",
+    "Qualified Cyrillic reviewer sign-off AND a second independent qualified reviewer sign-off recorded in the PR (COI declarations noted); mandatory because the scheme claims strict"
+  ],
+  "resources": [
+    "PLAN.md — Data, licensing & compliance; Quality, review & risk gates; scheme-cyrl-001 acceptance criteria",
+    "TASKS.md — scheme-cyrl-001 acceptance criteria",
+    "tasks/open-transliteration-license-000.json — BLOCKING prerequisite",
+    "tasks/open-transliteration-engine-001.json",
+    "tasks/open-transliteration-harness-001.json",
+    "UNGEGN / UN romanization systems for geographical names",
+    "BGN/PCGN romanization systems (US-gov / Crown)",
+    "Unicode CLDR / ICU transform data (Unicode License)",
+    "ISO 9:1995 System A — cited for conformance only; table must NOT be copied"
+  ],
+  "output": "data/schemes/cyrl-latn-iso9a.yaml (+ compiled JSON); data/vectors/cyrl-latn-iso9a/ golden vectors; data/review/cyrl-latn-iso9a.yaml review record with agent flags and reviewer sign-offs",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

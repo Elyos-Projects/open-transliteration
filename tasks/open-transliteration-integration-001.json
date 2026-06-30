@@ -1,0 +1,34 @@
+{
+  "id": "open-transliteration-integration-001",
+  "title": "Support first adopter integration and confirm scheme in active use",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["transliteration", "engineering", "adoption", "i18n"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Integration is the first true Definition-of-Shipped event: the adopter integrates at least one scheme and confirms it is in use. This may require packaging adjustments, API surface changes, or integration guides. Adopter feedback on mapping defects or usability issues must be captured and filed. This task's completion is what flips verifiedNeed to true for the project and enables M4.",
+  "objective": "Support the adopter (confirmed in adopter-001) in integrating at least one open-transliteration scheme into their downstream project. Deliver any integration support artifacts (packages, format conversions, integration guide, or API surface adjustments) needed for the adopter to depend on the scheme. Confirm and record that the scheme is in active use. Capture adopter feedback in the outcome log.",
+  "acceptanceCriteria": [
+    "The adopter integrates at least one open-transliteration scheme and confirms it is in use (written confirmation recorded in the PR or a linked issue/receipt)",
+    "Any integration support artifacts delivered (e.g., npm package publishing, alternative format export, integration guide, API adjustments) are PR-merged and tested",
+    "Adopter feedback captured in docs/outcomes/outcome-log.yaml or equivalent: adoption status, any mapping defects identified, any usability issues raised",
+    "Any mapping defect found by the adopter filed in the project defect log with severity and resolution plan",
+    "PR description references the adopter confirmation and records this as the project's first Definition-of-Shipped event",
+    "Steward confirms adoption in writing and records it as the outcome event"
+  ],
+  "resources": [
+    "PLAN.md — M3 definition; Definition of Shipped; Sustainability",
+    "TASKS.md — integration-001 acceptance criteria",
+    "tasks/open-transliteration-adopter-001.json",
+    "tasks/open-transliteration-contract-001.json"
+  ],
+  "output": "Integration support artifacts (as needed per adopter); docs/outcomes/outcome-log.yaml first entry; PR with adopter confirmation recorded",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

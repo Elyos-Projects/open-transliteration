@@ -1,0 +1,39 @@
+{
+  "id": "open-transliteration-scheme-arab-001",
+  "title": "Arabic ↔ Latin scheme: strict/normalized on vocalized input, lossy with loss report on unvocalized input",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["transliteration", "linguistics", "arabic", "i18n"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "Arabic is the hardest pair because unwritten short vowels make naive romanization lossy: Arabic text is typically written without diacritics (harakat), so the vowel pattern is not recoverable from the written form alone. The project's honest approach is to declare two modes: strict or normalized on fully-vocalized input (where all diacritics are present and round-trip is possible), and explicitly lossy with a published loss report on unvocalized input. This task produces the first Arabic scheme with that honest dual-mode tagging. A license/provenance check is required before authoring; ISO 233 tables must not be copied.",
+  "objective": "Author data/schemes/arab-latn-iso233.yaml (or equivalent) — a validated Arabic ↔ Latin scheme with dual-mode reversibility: strict or normalized on fully-vocalized text, lossy on unvocalized text. Built from open/PD sources; sun/moon letters, hamza/madda, ta marbuta, shadda, and Arabic-Indic digits handled and tested. Qualified Arabic reviewer + mandatory second reviewer sign-off. License/provenance confirmed before authoring.",
+  "acceptanceCriteria": [
+    "License/provenance prerequisite confirmed in writing before authoring: Arabic scheme can be built from open/PD sources without copying any copyrighted table; output licenses compatible",
+    "data/schemes/arab-latn-iso233.yaml validates against mappingSchemeSchema; declares reversibility for the vocalized mode (strict or normalized) and documents the unvocalized mode as lossy with a non-null lossReport",
+    "Handles and tests: sun/moon letters (with appropriate transliteration), hamza/madda forms (hamza on alif/waw/ya/standalone), ta marbuta (with and without harakat), shadda (gemination), and Arabic-Indic digits (U+0660–U+0669: ٠١٢٣)",
+    "For fully-vocalized input: round-trip (reverse(forward(s)) == NFC(s) or to normalization contract) on golden vectors + property-generated cases; green in CI",
+    "For unvocalized input: harness does NOT assert round-trip equality; lossReport enumerates exactly what is dropped (e.g., short vowels, shadda context); harness smoke-checks that lossReport is non-null and non-empty",
+    "conformsTo cites the chosen scheme reference (e.g., ISO 233 or a documented Buckwalter-style ASCII scheme) without copying any copyrighted table; provenanceRefs resolve to open/PD allow-listed sources",
+    "Collision/bijection checker run for the vocalized mode; second independent reviewer + back-mapping QA on any strict claim",
+    "UNCERTAIN: flags captured in data/review/arab-latn-iso233.yaml; qualified Arabic reviewer AND second independent reviewer sign-off recorded; neutral/PD examples only"
+  ],
+  "resources": [
+    "PLAN.md — scheme-arab-001 M2 acceptance criteria; hard-case test inventory",
+    "TASKS.md — scheme-arab-001 acceptance criteria",
+    "tasks/open-transliteration-engine-002.json",
+    "tasks/open-transliteration-reviewers-002.json",
+    "Unicode CLDR / ICU Arabic transform data (Unicode License)",
+    "ISO 233:1999 — cited for conformance only; table must NOT be copied",
+    "Buckwalter transliteration — documented ASCII Arabic scheme (verify license before use)"
+  ],
+  "output": "data/schemes/arab-latn-iso233.yaml (+ compiled JSON); data/vectors/arab-latn-iso233/ golden vectors (vocalized + unvocalized examples); data/loss-reports/arab-latn-iso233.md; data/review/arab-latn-iso233.yaml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "open-transliteration-watcher-002",
+  "title": "Automate source-change watcher as a scheduled hash-diff check",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "engineering", "licensing", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The M0 watcher-001 is a manually-triggered script. For sustainable maintenance the source-change check must run on a schedule so that license or content drift in allow-listed sources is caught without manual action. This is especially important as the number of schemes and sources grows in M1+. The automation does not auto-update; it flags and alerts, and a human reviews and decides.",
+  "objective": "Wire the source-change hash-diff check (from watcher-001) into a scheduled CI job (e.g., a GitHub Actions workflow scheduled weekly via cron) that re-fetches each allow-listed source URL, compares hashes, and opens an issue or posts a comment on any CHANGED or UNREACHABLE entry. The maintainer reviews and takes action; the watcher itself never auto-updates.",
+  "acceptanceCriteria": [
+    ".github/workflows/check-sources.yml (or equivalent) runs scripts/check-sources on a weekly schedule (or configurable interval)",
+    "On any CHANGED or UNREACHABLE result, the workflow creates a GitHub issue (or posts to an existing tracking issue) listing the affected sources and the hash diff",
+    "Workflow exits non-zero only if the fetch/compute step itself errors; hash differences are flagged but do not fail the scheduled run (to avoid alert fatigue on unavoidable upstream changes)",
+    "The workflow does NOT auto-update allow-list.yaml; flags only — a maintainer must review and take deliberate action",
+    "Workflow is documented in CONTRIBUTING.md or a maintenance README; disable/re-enable instructions included",
+    "pnpm build && pnpm lint passes; workflow YAML is syntactically valid"
+  ],
+  "resources": [
+    "PLAN.md — Security & privacy (supply-chain; automated watcher in M1)",
+    "TASKS.md — watcher-002 description",
+    "tasks/open-transliteration-watcher-001.json — manual script being automated",
+    "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule — GitHub Actions schedule trigger"
+  ],
+  "output": ".github/workflows/check-sources.yml (scheduled GitHub Actions workflow); updated CONTRIBUTING.md or docs/maintenance.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

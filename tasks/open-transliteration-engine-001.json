@@ -1,0 +1,36 @@
+{
+  "id": "open-transliteration-engine-001",
+  "title": "Deterministic transliteration engine: NFC normalization, grapheme-cluster segmentation, ordered context-sensitive rules (forward + inverse)",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "engineering", "linguistics", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "open-transliteration's reference engine is the thin, deterministic interpreter that applies mapping scheme data in both the forward and inverse directions. It must be NFC-correct by construction, operate on extended grapheme clusters (not code points), produce deterministic output, and contain no ML, no vendor/agent-specific logic, and no network calls at runtime. It loads and validates schemes against mappingSchemeSchema. This is the core runtime that all scheme data and test tasks depend on.",
+  "objective": "Implement transliterate(text, schemeId, direction), loadScheme(id), and checkReversible(schemeId) in packages/core with a pipeline of: NFC-normalize → segment into extended grapheme clusters (via Intl.Segmenter or a vetted grapheme library) → apply ordered context-sensitive rules (first match within a cluster) → emit. Provide a symmetric inverse path. Expose a thin CLI command (transliterate <scheme> <direction>) for batch use.",
+  "acceptanceCriteria": [
+    "packages/core exports transliterate(text, schemeId, direction), loadScheme(id), and checkReversible(schemeId) as ESM-compatible TypeScript with no vendor-specific imports",
+    "Pipeline is: NFC-normalize → segment into extended grapheme clusters → apply ordered rules (first match within a cluster, context-sensitive where contextBefore/contextAfter defined) → emit; identical pipeline applies in both forward and inverse directions",
+    "Engine loads and validates schemes against mappingSchemeSchema at load time; throws a typed error for invalid schemes",
+    "No ML, no network calls, no vendor/agent-specific logic in packages/core; purely deterministic",
+    "Unit tests cover: NFC normalization of composed/decomposed input, combining-mark handling, context-before and context-after rules, passthrough of digits/punctuation/foreign-text not in the rule set, and empty/boundary inputs",
+    "CLI command transliterate <scheme> <direction> reads stdin and writes stdout for batch use",
+    "pnpm build && pnpm test && pnpm lint passes"
+  ],
+  "resources": [
+    "PLAN.md — Solution approach & architecture (engine pipeline, packages/core)",
+    "TASKS.md — engine-001 acceptance criteria",
+    "tasks/open-transliteration-schema-001.json — schemas the engine depends on",
+    "https://tc39.es/ecma402/#sec-intl-segmenter — Intl.Segmenter for grapheme clusters",
+    "https://unicode.org/reports/tr15/ — Unicode Normalization Forms (NFC)"
+  ],
+  "output": "packages/core/src/engine.ts (or equivalent ESM module) + packages/core/src/cli.ts; unit tests in packages/core/src/__tests__/; updated pnpm workspace build",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

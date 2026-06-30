@@ -1,0 +1,36 @@
+{
+  "id": "open-transliteration-vectors-cyrl-001",
+  "title": "Golden test vectors for Cyrillic ↔ Latin scheme from open authoritative examples",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "testing", "cyrillic", "i18n"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Golden test vectors are curated input/output pairs from open authoritative sources (UNGEGN sample word lists, PD corpora, openly-licensed reference materials). They are the most readable proof of correctness and catch specific known-hard cases. All examples must be neutral/PD text — no real personal names or identifiable individuals. Vectors must be sourced from the provenance allow-list; their origin is recorded per entry.",
+  "objective": "Create at least 50 golden test vector pairs for the Cyrillic ↔ Latin (cyrl-latn-iso9a) scheme, sourced from open/PD authoritative examples, stored in data/vectors/cyrl-latn-iso9a/ and validated by the test harness. Cover: basic character mapping, uppercase/lowercase pairs, combining marks, multi-character grapheme clusters, digits, punctuation passthrough, and foreign-text passthrough.",
+  "acceptanceCriteria": [
+    "data/vectors/cyrl-latn-iso9a/ contains >= 50 forward+inverse test vector pairs in the harness-expected format",
+    "Each vector records its source (provenance reference from the allow-list) and is neutral/PD text only — no real personal names or identifiable individuals",
+    "Vectors cover: all basic Cyrillic letter mappings (upper and lower), combining-mark edge cases, multi-character grapheme clusters, Cyrillic digits, punctuation and whitespace passthrough, and foreign-text passthrough",
+    "Known hard cases are explicitly represented: NFC vs NFD input normalization, Cyrillic/Latin homoglyphs, and any context-sensitive rules in the scheme",
+    "All vectors pass the harness golden-vector runner in CI (reverse(forward(s)) == NFC(s) for each pair)",
+    "Vector file(s) validate against a simple schema (id, input, expectedForward, expectedInverse, source, notes?) and are readable as YAML or JSON"
+  ],
+  "resources": [
+    "PLAN.md — Reversibility (golden vectors as proof method); hard-case test inventory (Appendix A)",
+    "TASKS.md — vectors-cyrl-001 acceptance criteria",
+    "tasks/open-transliteration-scheme-cyrl-001.json",
+    "UNGEGN sample word lists for geographical names (open/PD)",
+    "UDHR translations in Cyrillic scripts (unicode.org/udhr/)",
+    "Wikisource PD texts in Russian/Bulgarian/etc."
+  ],
+  "output": "data/vectors/cyrl-latn-iso9a/ directory with >= 50 vector entries (YAML or JSON) and a provenance attribution file",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "open-transliteration-outcomes-001",
+  "title": "Outcome tracking: post-release defect log and adopter feedback log per scheme",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["transliteration", "data", "governance", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Success is measured as outcomes delivered to real beneficiaries, not tasks merged. Post-release, the project needs a maintained log tracking adoption status, post-release mapping defects, round-trip regressions, and adopter usefulness feedback per scheme. This log feeds the PLAN.md success metrics and makes the project's real-world impact (or lack thereof) visible. Without it, the project cannot know whether released schemes are working correctly in the field or being used at all.",
+  "objective": "Create and maintain docs/outcomes/outcome-log.yaml — a per-scheme structured log recording adoption status, post-release critical defects (target: 0), round-trip regressions detected, and adopter usefulness feedback. Establish the log with entries for all released schemes after integration-001. Define the update cadence and ownership.",
+  "acceptanceCriteria": [
+    "docs/outcomes/outcome-log.yaml created with entries for each released scheme covering: adoption status (released|adopted|deprecated), post-release critical defects count (target 0) with links to issue tracker, round-trip regressions (count and resolved/open), and adopter usefulness feedback (qualitative, from adopter check-ins)",
+    "Log schema is defined (YAML structure with required fields per scheme entry) and validated in CI or by a simple lint check",
+    "Update cadence defined (e.g., updated at each scheme release, at each adopter check-in, and at least quarterly); owner assigned (steward or maintainer)",
+    "Log is linked from PLAN.md success metrics section and README.md",
+    "Log initialized with at least one entry (the first adopted scheme from integration-001) after that task completes"
+  ],
+  "resources": [
+    "PLAN.md — Success metrics (outcome metrics table); Sustainability (outcome tracking)",
+    "TASKS.md — outcomes-001 acceptance criteria",
+    "tasks/open-transliteration-integration-001.json"
+  ],
+  "output": "docs/outcomes/outcome-log.yaml (with schema definition and initial entry); update cadence and ownership documented in docs/outcomes/README.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
