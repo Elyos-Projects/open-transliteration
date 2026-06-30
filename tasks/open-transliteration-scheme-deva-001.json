@@ -1,0 +1,38 @@
+{
+  "id": "open-transliteration-scheme-deva-001",
+  "title": "Devanagari ↔ Latin mapping scheme (ISO 15919 / IAST–conformant, normalized)",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "linguistics", "devanagari", "i18n"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "Devanagari is the second script pair, chosen because it exercises the engine's conjunct/virama handling and the normalized reversibility class (round-trips losslessly up to a documented normalization contract). ISO 15919 and IAST are scholarly conventions, not copyrighted tables; the mapping is built from open/PD sources and re-derived. A license/provenance check analogous to license-000 must be performed before authoring. This is the first scheme in the Devanagari family, so a second independent reviewer is mandatory.",
+  "objective": "Author data/schemes/deva-latn-iso15919.yaml — a validated Devanagari ↔ Latin scheme tagged reversibility: normalized, with a documented normalization contract, a loss report, virama/conjunct handling, and all Devanagari-specific edge cases covered. Built from open/PD sources; provenance recorded. Qualified Devanagari reviewer + mandatory second reviewer sign-off.",
+  "acceptanceCriteria": [
+    "License/provenance prerequisite confirmed in writing before authoring: Devanagari scheme can be built from open/PD sources without copying any copyrighted table; output licenses compatible",
+    "data/schemes/deva-latn-iso15919.yaml validates against mappingSchemeSchema; tagged reversibility: normalized, normalizationForm: NFC, with a documented normalizationContract field and a non-null lossReport",
+    "Engine handles Devanagari grapheme clusters: virama/conjunct sequences, anusvara, visarga, nukta, and documented schwa handling; Devanagari digits (U+0966–U+096F: ०१२३) tested explicitly",
+    "Round-trip asserts equality up to the declared normalization contract (not byte-identity) on golden vectors + property-generated cases + open Devanagari corpus; green in CI",
+    "conformsTo cites ISO 15919 and/or IAST convention without copying any copyrighted table; provenanceRefs resolve to open/PD allow-listed sources",
+    "UNCERTAIN: flags from the drafting agent captured into data/review/deva-latn-iso15919.yaml; no sign-off while any flag is unresolved",
+    "Qualified Devanagari reviewer sign-off AND a second independent qualified reviewer sign-off recorded in the PR (mandatory: first scheme in Devanagari family)"
+  ],
+  "resources": [
+    "PLAN.md — scheme-deva-001 M1 acceptance criteria; hard-case test inventory",
+    "TASKS.md — scheme-deva-001 acceptance criteria",
+    "tasks/open-transliteration-engine-002.json",
+    "tasks/open-transliteration-reviewers-002.json",
+    "IAST (International Alphabet of Sanskrit Transliteration) — scholarly convention, public domain",
+    "Unicode CLDR / ICU Devanagari transform data (Unicode License)",
+    "ISO 15919:2001 — cited for conformance only; table must NOT be copied"
+  ],
+  "output": "data/schemes/deva-latn-iso15919.yaml (+ compiled JSON); data/vectors/deva-latn-iso15919/ golden vectors; data/review/deva-latn-iso15919.yaml review record",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "open-transliteration-license-000",
+  "title": "BLOCKING: confirm open/PD-only buildability and output-license compatibility for the Cyrillic ↔ Latin scheme",
+  "project": "open-transliteration",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "licensing", "compliance", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Before any scheme data may be authored, the maintainer/license reviewer must confirm in writing that (a) the mapping can be built entirely from open/PD sources or re-derived without copying any copyrighted table, and (b) the output license (CC-BY-4.0 for data, MIT for code) is compatible with every source used. This is a hard pre-authoring gate — not an open question — and scheme-cyrl-001 MUST NOT start until this task is delivered. ISO/DIN/ALA-LC tables are copyrighted and must never be copied; conformance may only be cited.",
+  "objective": "Confirm and record in writing, on the provenance allow-list entries and in a short license-gate document, that the planned Cyrillic ↔ Latin scheme (ISO 9 System A–conformant) can be built entirely from the open/PD sources on the allow-list (UNGEGN, BGN/PCGN, Unicode CLDR/ICU, open corpora), without copying any copyrighted table, and that CC-BY-4.0 (data) and MIT (code) are compatible with every source license used.",
+  "acceptanceCriteria": [
+    "A license-gate document (docs/license-gates/cyrl-latn.md or equivalent) records the written confirmation: (a) the Cyrillic ↔ Latin mapping can be built from open/PD sources on the allow-list without copying any copyrighted table, and (b) CC-BY-4.0 data / MIT code output licenses are compatible with all sources used",
+    "Each allow-list source used for scheme-cyrl-001 has verifiedBy and verifiedDate populated on the provenance allow-list",
+    "ISO 9, DIN 31635, and any other copyrighted standards that will be cited (not copied) are explicitly recorded as cite-only references with an excludedReason on the allow-list",
+    "If either confirmation (a) or (b) cannot be made, an alternative open-buildable scheme is identified or the scheme is formally deferred, and that decision is recorded",
+    "scheme-cyrl-001 is explicitly unblocked (or blocked with a documented reason) by the conclusion of this task"
+  ],
+  "resources": [
+    "PLAN.md — Data, licensing & compliance section; Risks & mitigations",
+    "TASKS.md — license-000 acceptance criteria",
+    "tasks/open-transliteration-provenance-001.json — the allow-list this task depends on",
+    "UNGEGN / UN romanization systems for geographical names (verify per-document reuse terms)",
+    "BGN/PCGN romanization systems (US-gov / Crown; verify per document)",
+    "Unicode CLDR / ICU transform data (Unicode License)"
+  ],
+  "output": "docs/license-gates/cyrl-latn.md (license-gate written confirmation) and updated provenance allow-list entries with verifiedBy/verifiedDate populated for all Cyrillic scheme sources",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

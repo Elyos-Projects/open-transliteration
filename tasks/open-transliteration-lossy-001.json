@@ -1,0 +1,35 @@
+{
+  "id": "open-transliteration-lossy-001",
+  "title": "Add clearly-tagged lossy pronunciation romanization schemes (never mislabeled as reversible)",
+  "project": "open-transliteration",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["transliteration", "linguistics", "i18n", "data"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Pronunciation-oriented romanizations (e.g., BGN/PCGN popular schemes, Revised Romanization of Korean) are widely used but lossy: you cannot recover the original script from the romanized form. These schemes are useful for practical purposes (search normalization, input methods, display) but must be labeled honestly. A lossy scheme tagged as reversible corrupts data downstream. This task adds at least one clearly-tagged lossy scheme with an accurate loss report and a harness that does NOT assert round-trip equality.",
+  "objective": "Author at least one pronunciation-oriented romanization scheme with reversibility: lossy, a comprehensive loss report, and integration into the harness that explicitly skips round-trip equality assertions for it. The scheme must never be mislabeled as strict or normalized. Per-scheme docs must make the non-reversibility unmistakable to users.",
+  "acceptanceCriteria": [
+    "At least one scheme added with reversibility: lossy and a non-null, comprehensive lossReport enumerating every category of information that is dropped",
+    "Scheme validates against mappingSchemeSchema with reversibility: lossy; conformsTo cites the source scheme without copying copyrighted tables; provenanceRefs resolve to open/PD allow-listed sources",
+    "Test harness does NOT assert reverse(forward(s)) == NFC(s) for this scheme; instead performs a loss-report smoke check confirming lossReport is non-null and non-empty",
+    "Per-scheme docs make the non-reversibility unmistakable: the word 'lossy' appears in the title and the first paragraph; the not-certified disclaimer is present; the loss report is summarized prominently",
+    "Collision/bijection checker explicitly not run as a pass/fail gate for lossy schemes (or runs with a warning-only mode); documented in CI comments",
+    "Qualified per-script reviewer confirms loss report accuracy and that the scheme is correctly labeled"
+  ],
+  "resources": [
+    "PLAN.md — Scope (lossy class definition; non-goals: no mislabeling); M4 lossy-001 criteria",
+    "TASKS.md — lossy-001 acceptance criteria",
+    "tasks/open-transliteration-engine-002.json",
+    "BGN/PCGN romanization systems (US-gov / Crown; verify per document)",
+    "Unicode CLDR / ICU popular romanization transforms"
+  ],
+  "output": "data/schemes/<lossy-scheme-id>.yaml (+ compiled JSON); data/loss-reports/<lossy-scheme-id>.md; data/schemes/docs/<lossy-scheme-id>.md; updated harness configuration",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

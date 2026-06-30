@@ -1,0 +1,34 @@
+{
+  "id": "open-transliteration-checker-001",
+  "title": "Collision/bijection static checker: fails CI on unsupported strict reversibility claims",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "engineering", "testing", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "A false strict reversibility claim silently corrupts downstream data: a name romanized to Latin cannot be exactly recovered to Cyrillic. The collision/bijection checker prevents this by statically analyzing a scheme's rule set for many-to-one target collisions and unresolved context overlaps before any data is published. If a scheme is tagged reversibility: strict but the checker finds an ambiguous inverse, the build must fail. This is a hard gate, not advisory output.",
+  "objective": "Implement a static collision/bijection checker (checkReversible(schemeId) or as a standalone CLI gate) that analyzes a mapping scheme's rule set, detects many-to-one target collisions and unresolvable context overlaps for the inverse direction, emits a structured report of whether strict reversibility is achievable, and exits non-zero (failing CI) if a scheme tagged reversibility: strict has any unresolvable collision.",
+  "acceptanceCriteria": [
+    "checkReversible(schemeId) returns a structured report: { achievable: boolean, collisions: Array<{from, to, conflicts}>, contextOverlaps: Array<{...}> }",
+    "The checker exits non-zero and prints a human-readable failure message in CI when a strict-tagged scheme has any detected collision or unresolvable context overlap",
+    "The checker correctly reports achievable: true for a clean bijective rule set (no two source tokens map to the same target token, no unresolvable context ambiguity in the inverse direction)",
+    "The checker correctly reports achievable: false for a rule set with known collisions (tested with a synthetic scheme containing deliberate many-to-one mappings)",
+    "Integrated into pnpm test so it runs automatically on every scheme in data/schemes/; schemes tagged strict must pass, others get a warning only",
+    "pnpm build && pnpm test && pnpm lint passes"
+  ],
+  "resources": [
+    "PLAN.md — Reversibility section (static check description)",
+    "TASKS.md — checker-001 acceptance criteria",
+    "tasks/open-transliteration-schema-001.json",
+    "tasks/open-transliteration-engine-001.json"
+  ],
+  "output": "packages/core/src/checker.ts (or equivalent) + integration in pnpm test; test cases covering clean and collision-containing synthetic schemes",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

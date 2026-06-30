@@ -1,0 +1,35 @@
+{
+  "id": "open-transliteration-engine-002",
+  "title": "Engine: context-sensitive conjuncts and virama handling, normalized reversibility class, and loss reports",
+  "project": "open-transliteration",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "engineering", "linguistics", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The M0 engine handles the simple Cyrillic bijection. Devanagari and Arabic require richer rule capabilities: virama/conjunct sequences (two consonants joined by virama in Devanagari), anusvara, visarga, nukta, documented schwa handling, and support for the normalized reversibility class (round-trip to a declared normalized form, not necessarily byte-identity). Loss reports enumerate exactly what information is dropped in normalized or lossy schemes. These capabilities are prerequisites for all M1+ scheme tasks.",
+  "objective": "Extend packages/core to handle: (1) virama/conjunct rule types in Devanagari (multi-grapheme cluster matching across a virama), (2) anusvara/visarga/nukta as combining marks with documented handling, (3) schwa handling (documented per-scheme as part of the normalization contract), (4) the normalized reversibility class with a per-scheme normalization contract and a loss report generator, and (5) Devanagari digits (०१२३) and Arabic-Indic digits (٠١٢٣) explicit passthrough/handling.",
+  "acceptanceCriteria": [
+    "Engine rule types extended to support: multi-grapheme-cluster matching (conjunct/virama sequences), combining-mark rules (anusvara, visarga, nukta), and schwa-handling rules with documented behavior",
+    "normalized reversibility class implemented: round-trip asserts equality up to the scheme's declared normalizationContract string (not byte-identity); contract is stored on the scheme and surfaced in the harness assertion",
+    "Loss report support: engine can emit a lossReport string per scheme (listing what is dropped) and the harness reads it for lossy/normalized schemes instead of asserting full round-trip",
+    "Devanagari digits (U+0966–U+096F: ०१२३) and Arabic-Indic digits (U+0660–U+0669: ٠١٢٣) handled explicitly in tests: either mapped or passed through per scheme, not silently dropped",
+    "Unit tests cover: virama conjunct sequences, anusvara/visarga, nukta, schwa in a Devanagari-like test scheme, normalized round-trip assertion (correct vs byte-identity), and both digit ranges",
+    "pnpm build && pnpm test && pnpm lint passes; engine-001 tests continue to pass (no regression)"
+  ],
+  "resources": [
+    "PLAN.md — hard-case test inventory (Appendix A item 25); Scope (reversibility classes)",
+    "TASKS.md — engine-002 description and M1 acceptance criteria (scheme-deva-001)",
+    "tasks/open-transliteration-engine-001.json — base engine to extend",
+    "https://unicode.org/charts/PDF/U0900.pdf — Devanagari Unicode block",
+    "https://unicode.org/charts/PDF/U0600.pdf — Arabic Unicode block"
+  ],
+  "output": "Extended packages/core/src/engine.ts and associated types; updated unit tests; updated pnpm build",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

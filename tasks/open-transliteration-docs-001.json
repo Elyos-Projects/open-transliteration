@@ -1,0 +1,35 @@
+{
+  "id": "open-transliteration-docs-001",
+  "title": "Per-scheme documentation: conformance, reversibility class, loss report, and not-certified disclaimer",
+  "project": "open-transliteration",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["transliteration", "documentation", "linguistics", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Every released scheme needs a human-readable per-scheme README that tells adopters what standard it conforms to (cited, not copied), which reversibility class it has, what (if anything) is lost, how to use it, and that output is not a certified or official transliteration. Without this documentation, a naive user might use a lossy scheme as if it were lossless, or mistake the output for a certified transliteration for legal documents. The disclaimer is especially important given the identity-documentation misuse risk.",
+  "objective": "Write a per-scheme README for each of the three M0–M2 schemes (cyrl-latn-iso9a, deva-latn-iso15919, arab-latn-iso233) in data/schemes/docs/ (or co-located README.md files). Each README covers: the standard conformed to (cited, not copied), reversibility class + normalization contract, the loss report summary (if applicable), usage examples, provenance attribution, and the mandatory 'not a certified or official transliteration' disclaimer.",
+  "acceptanceCriteria": [
+    "data/schemes/docs/cyrl-latn-iso9a.md (or equivalent) covers: ISO 9 System A citation (not copied), strict reversibility class, NFC normalization contract, usage examples (neutral/PD text), provenance attribution, and the not-certified disclaimer",
+    "data/schemes/docs/deva-latn-iso15919.md covers: ISO 15919/IAST citation, normalized reversibility class, documented normalization contract, loss report summary, usage examples, provenance attribution, and the not-certified disclaimer",
+    "data/schemes/docs/arab-latn-iso233.md covers: scheme reference citation, dual-mode reversibility (vocalized: strict/normalized; unvocalized: lossy), loss report summary for unvocalized mode, usage examples, provenance attribution, and the not-certified disclaimer",
+    "Every per-scheme doc includes the 'not a certified, official, or legal transliteration' disclaimer verbatim or substantially equivalent",
+    "Docs use neutral/PD examples only; no real personal names or politically sensitive geographic names",
+    "Docs are linked from a top-level schemes index (data/schemes/README.md or equivalent)"
+  ],
+  "resources": [
+    "PLAN.md — Per-scheme docs (Scope section); docs-001 M2 acceptance criteria; non-goals (not certified/official)",
+    "TASKS.md — docs-001 acceptance criteria",
+    "tasks/open-transliteration-scheme-cyrl-001.json",
+    "tasks/open-transliteration-scheme-deva-001.json",
+    "tasks/open-transliteration-scheme-arab-001.json"
+  ],
+  "output": "data/schemes/docs/ directory with cyrl-latn-iso9a.md, deva-latn-iso15919.md, and arab-latn-iso233.md; data/schemes/README.md index",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

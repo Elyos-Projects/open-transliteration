@@ -1,0 +1,34 @@
+{
+  "id": "open-transliteration-adopter-001",
+  "title": "Secure first adopter: confirm a downstream project integrating at least one scheme",
+  "project": "open-transliteration",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["transliteration", "adoption", "governance", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Without a named adopter, open-transliteration cannot reach its Definition of Shipped. M0–M2 build adopter-independent foundations so the project is not blocked, but adoption is the true success event. A pause/decision point applies at the end of M2: if no adopter has been secured by then, the maintainer must make an explicit go/pivot/hold decision rather than continuing to build schemes no one is committed to use. verifiedNeed flips to true only when an adopter is confirmed.",
+  "objective": "Conduct structured outreach to candidate adopter types (Wikimedia language tooling, library/GLAM cataloguing systems, Unicode CLDR, Translators without Borders/CLEAR Global, academic NLP groups, language-revitalization NGOs), confirm a named project or organization as the first adopter in writing, and record the agreed scheme(s) and integration needs. On completion, update related tasks with the adopter's name and set verifiedNeed: true.",
+  "acceptanceCriteria": [
+    "Outreach conducted to candidate adopter types including: Wikimedia Foundation/language tooling, library/GLAM cataloguing systems and ALA/IFLA working groups, Unicode CLDR, Translators without Borders/CLEAR Global, academic NLP groups, language-revitalization NGOs",
+    "A named project or organization confirmed in writing as the first adopter; written confirmation recorded (email, GitHub issue, or equivalent)",
+    "Agreed scheme(s) and integration needs documented in docs/adopter/adopter-001.md or equivalent",
+    "The M2 pause/decision point is honored: if no adopter materialized by end of M2 foundations, the recorded go/pivot/hold decision governs whether this task proceeds",
+    "On adopter confirmed: related delivery tasks (integration-001 and others) updated with requestor name; verifiedNeed flagged for update to true in those tasks",
+    "Outreach approach, candidate list, and outcomes (including declined candidates) documented regardless of result"
+  ],
+  "resources": [
+    "PLAN.md — Open questions (adopter outreach plan); M3 definition; Problem & beneficiaries",
+    "TASKS.md — adopter-001 acceptance criteria",
+    "tasks/open-transliteration-reviewers-002.json — reviewer network (potential adopter contacts)",
+    "COMPETITIVE-ANALYSIS.md — prior art and adopter landscape"
+  ],
+  "output": "docs/adopter/adopter-001.md (adopter confirmation, agreed schemes, integration needs, and outreach summary)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

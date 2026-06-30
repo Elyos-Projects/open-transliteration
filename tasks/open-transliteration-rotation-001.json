@@ -1,0 +1,33 @@
+{
+  "id": "open-transliteration-rotation-001",
+  "title": "Reviewer rotation and load-balancing policy for sustainable per-script review coverage",
+  "project": "open-transliteration",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["transliteration", "governance", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "As scheme coverage grows, the review burden on individual qualified per-script reviewers increases. A single-reviewer dependence is a sustainability risk: if the one qualified Devanagari reviewer becomes unavailable, new Devanagari schemes are blocked. Rotation and load-balancing policies ensure the reviewer network is maintained, onboarding of new reviewers is defined, and no single reviewer is a single point of failure.",
+  "objective": "Write a reviewer rotation and load-balancing policy document (docs/reviewers/rotation-policy.md) defining: how review assignments are distributed across qualified reviewers for a given script, the maximum concurrent assignments per reviewer, how reviewers are onboarded to replace or supplement existing coverage, the escalation path if reviewer availability drops below minimum for a script, and the cadence for roster review.",
+  "acceptanceCriteria": [
+    "docs/reviewers/rotation-policy.md defines review assignment distribution: assignments rotated across qualified reviewers for a script; maximum concurrent assignments per reviewer specified",
+    "Policy defines the minimum reviewer coverage per script (at least 2 qualified reviewers active for each script with a released scheme) and an escalation path if coverage drops below minimum",
+    "Policy defines the onboarding process for adding a new reviewer to replace or supplement existing coverage: same qualification criteria as reviewers-001, shadow review before solo sign-off",
+    "Policy defines the cadence for roster review (e.g., every 6 months): confirm reviewers are still active and available, update roster.yaml",
+    "Policy is reviewed and approved by the steward and maintainer; linked from docs/reviewers/README.md"
+  ],
+  "resources": [
+    "PLAN.md — Sustainability & maintenance; Governance; Risks (no qualified reviewer for a script)",
+    "TASKS.md — rotation-001 description",
+    "tasks/open-transliteration-reviewers-001.json",
+    "tasks/open-transliteration-reviewers-002.json"
+  ],
+  "output": "docs/reviewers/rotation-policy.md; updated docs/reviewers/README.md linking the policy",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

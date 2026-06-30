@@ -1,0 +1,33 @@
+{
+  "id": "open-transliteration-reviewers-001",
+  "title": "Per-script reviewer qualification criteria and onboarding workflow",
+  "project": "open-transliteration",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["transliteration", "linguistics", "governance", "i18n"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Every scheme must be reviewed by a qualified per-script reviewer before it is released. A false reversibility claim or an incorrect grapheme mapping is a real harm — a person's name corrupted silently. The qualification criteria and onboarding workflow establish what qualifies someone to review a scheme (native/near-native script command, linguistic/transliteration competence, conflict-of-interest declaration), how reviews are structured, when a second reviewer is mandatory, and how disagreements are resolved. These rules govern all future scheme reviews.",
+  "objective": "Write docs/reviewers/qualification-criteria.md (or equivalent) defining objective per-script reviewer qualification criteria, the onboarding/sign-off workflow, reviewer independence rules, the mandatory second-reviewer rule, back-mapping QA for strict claims, and the disagreement resolution rule (reconcile against open sources and checker → escalate → more conservative reversibility class wins, recorded in review.yaml).",
+  "acceptanceCriteria": [
+    "Document defines objective criteria for 'qualified per-script reviewer': native or near-native command of the script plus linguistic/transliteration competence for the specific script pair; criteria are concrete and checkable, not vague",
+    "Document defines the conflict-of-interest declaration requirement: any reviewer records their COI status; the human who ran the drafting agent may not be the sole sign-off reviewer for that scheme",
+    "Document defines when a second independent qualified reviewer is MANDATORY: (a) any scheme claiming strict reversibility, (b) the first scheme in each new script family",
+    "Document defines back-mapping QA requirement for strict claims: the second reviewer verifies the inverse direction independently",
+    "Document defines the disagreement resolution rule: reconcile against open sources and the checker → escalate to a third reviewer/maintainer → the more conservative reversibility class wins (e.g., strict downgraded to normalized); outcome recorded in review.yaml",
+    "Document defines the UNCERTAIN: flag format and the rule that no sign-off may be recorded while any agent flag is unresolved",
+    "Document is stored in docs/reviewers/ and linked from CONTRIBUTING.md or PLAN.md"
+  ],
+  "resources": [
+    "PLAN.md — Quality, review & risk gates section; Governance section",
+    "TASKS.md — reviewers-001 acceptance criteria"
+  ],
+  "output": "docs/reviewers/qualification-criteria.md (or docs/reviewers/README.md) defining qualification, onboarding, independence, second-reviewer, back-mapping QA, and disagreement rules",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
