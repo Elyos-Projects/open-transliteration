@@ -14,7 +14,7 @@
 
 ## Executive summary
 
-`open-transliteration` is an Elyos good-deed project that produces **open, machine-readable
+`open-transliteration` is a Hee-Lee Oss good-deed project that produces **open, machine-readable
 transliteration data and a reference engine** for converting text between writing systems —
 beginning with **Latin ↔ Cyrillic, Latin ↔ Devanagari, and Latin ↔ Arabic** — with a hard emphasis
 on **reversibility** (lossless round-trips) and **automated testing** of that property. The primary
@@ -23,7 +23,7 @@ rule-based reference engine** (library + CLI), and (3) a **test harness** that *
 fidelity rather than claiming it.
 
 The work runs in the **donated lane**: a human runs their own coding agent interactively to draft
-mappings, rules, tests, and docs, then opens PRs; the Elyos CLI only prepares workspaces and opens
+mappings, rules, tests, and docs, then opens PRs; the Hee-Lee Oss CLI only prepares workspaces and opens
 PRs. Because correct transliteration **needs domain accuracy** (native-script and
 linguistic competence per script pair), the project is **medium risk tier**: every scheme is gated
 by a **qualified script/linguistics reviewer** plus a **per-source license check** before it can be
@@ -137,7 +137,7 @@ NGOs. None is committed as of this draft.
   standards-conformant schemes neutrally, document alternatives, and use neutral/PD examples; we take
   no position on politically loaded script or naming disputes.
 - **Not** a hosted website/portal, a font/rendering project, or an OCR/handwriting project (those are
-  separate Elyos tracks).
+  separate Hee-Lee Oss tracks).
 
 ## Success metrics (outcomes)
 
@@ -221,7 +221,7 @@ strict bijection is achievable and the harness can be proven before harder scrip
 
 Primarily a **data + tooling** project: the durable public good is the **mapping datasets and their
 proof of correctness**; the engine is the reference implementation that makes the data runnable and
-testable. It rides existing Elyos donated-lane mechanics (CLI prepares workspace, human runs agent,
+testable. It rides existing Hee-Lee Oss donated-lane mechanics (CLI prepares workspace, human runs agent,
 PR opened, human/expert review gates "done").
 
 **Components**
@@ -446,7 +446,7 @@ data; named sustainability owner.
 ## Work breakdown
 
 The itemized, sized backlog lives in **[TASKS.md](./TASKS.md)**, organized by the milestones above
-(M0–M4) plus a Backlog/future section. Each task maps to an Elyos Task JSON (see the schema in
+(M0–M4) plus a Backlog/future section. Each task maps to a Hee-Lee Oss Task JSON (see the schema in
 `packages/schema/src/schemas.ts`) with id, type, lane, risk tier, deliverable, acceptance criteria,
 and license fields. M0–M2 tasks are partner-independent foundations; M3+ tasks are gated on a secured
 adopter and are marked accordingly (`verifiedNeed: false` until then).
@@ -471,7 +471,7 @@ adopter and are marked accordingly (`verifiedNeed: false` until then).
 
 ## Dependencies & integrations
 
-- **Elyos donated lane**: `packages/cli` (workspace prep + PR), `packages/core`, `packages/schema`
+- **Hee-Lee Oss donated lane**: `packages/cli` (workspace prep + PR), `packages/core`, `packages/schema`
   (Task JSON). No funded-lane / API-key execution in this project.
 - **Open/PD source references**: UNGEGN/UN romanization systems, BGN/PCGN & US-gov works, Unicode
   CLDR/ICU transform data, openly-licensed OSS transliteration projects (license-verified).
@@ -556,10 +556,10 @@ adopter and are marked accordingly (`verifiedNeed: false` until then).
 
 ## References
 
-- `C:\code\elyos\CLAUDE.md` — Elyos work rules, lanes, quality bar, refusal guardrails.
-- `C:\code\elyos\docs\good-deed-definition.md` — good-deed criteria and risk tiers.
-- `C:\code\elyos\packages\schema\src\schemas.ts` — Task JSON schema.
-- `C:\code\elyos\planning\ROADMAP.md` — portfolio roadmap (open-transliteration listed, Track 4).
+- `C:\code\hee-lee-oss\CLAUDE.md` — Hee-Lee Oss work rules, lanes, quality bar, refusal guardrails.
+- `C:\code\hee-lee-oss\docs\good-deed-definition.md` — good-deed criteria and risk tiers.
+- `C:\code\hee-lee-oss\packages\schema\src\schemas.ts` — Task JSON schema.
+- `C:\code\hee-lee-oss\planning\ROADMAP.md` — portfolio roadmap (open-transliteration listed, Track 4).
 - UNGEGN / UN romanization systems for geographical names (verify per-document reuse terms).
 - BGN/PCGN romanization systems (US-gov / Crown; verify per document).
 - Unicode CLDR / ICU transform data (Unicode License) — open prior art and comparison baseline.

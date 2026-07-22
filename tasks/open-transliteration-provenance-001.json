@@ -22,7 +22,7 @@
     "File validates against provenanceSchema and passes CI structural checks"
   ],
   "resources": [
-    "C:/Users/jason/AppData/Local/Temp/claude/C--code-elyos/5eca0d44-6b8b-4c30-9696-37a524cb249a/scratchpad/plans/open-transliteration/PLAN.md",
+    "C:/Users/jason/AppData/Local/Temp/claude/C--code-hee-lee-oss/5eca0d44-6b8b-4c30-9696-37a524cb249a/scratchpad/plans/open-transliteration/PLAN.md",
     "UNGEGN / UN romanization systems for geographical names",
     "BGN/PCGN romanization systems (US-gov / Crown)",
     "Unicode CLDR / ICU transform data (Unicode License)",

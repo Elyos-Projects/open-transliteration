@@ -289,8 +289,8 @@ https://github.com/greybax/cyrillic-to-translit-js
 ## 7. Parallel & perpendicular spin-offs
 
 **Reusable transliteration engine (the keystone).** The deterministic `packages/core` engine + schema
-is itself a reusable artifact other Elyos tracks can depend on — factor it as a standalone
-`@elyos/transliterate` package (engine + scheme loader + checker) so spin-offs share one proven core.
+is itself a reusable artifact other Hee-Lee Oss tracks can depend on — factor it as a standalone
+`@hee-lee-oss/transliterate` package (engine + scheme loader + checker) so spin-offs share one proven core.
 
 **Parallel (same domain, adjacent deliverable):**
 - **`keyboard-layouts-open`** — transliteration rule sets and input-method layouts are duals (romanized
@@ -305,7 +305,7 @@ is itself a reusable artifact other Elyos tracks can depend on — factor it as 
 
 **Perpendicular (different domain, shared infrastructure):**
 - **`loc-public-domain-engine`** — our provenance/license-snapshot/hash/archive model and the "re-derive
-  don't copy" doctrine are directly reusable; consider extracting a shared `@elyos/provenance` package.
+  don't copy" doctrine are directly reusable; consider extracting a shared `@hee-lee-oss/provenance` package.
 - **An MCP server (`transliterate-mcp`)** — expose `transliterate(text, schemeId, direction)`,
   `checkReversible(schemeId)`, `listSchemes()`, `lossProfile(schemeId)` as deterministic MCP tools so
   *any* agent (including Claude) can call the proven engine instead of guessing romanization inline.
@@ -334,7 +334,7 @@ is itself a reusable artifact other Elyos tracks can depend on — factor it as 
 7. **Does the `lossy` ASCII search-key companion** (Optimization #8) belong in scope, given the plan's
    firm "not pronunciation/not ASCII-folding" stance? It is *graphemic folding*, arguably in scope and
    a strong misuse-prevention lever — needs a maintainer ruling.
-8. **MCP server placement** — ship `transliterate-mcp` in this repo or as a sibling Elyos track once
+8. **MCP server placement** — ship `transliterate-mcp` in this repo or as a sibling Hee-Lee Oss track once
    the engine stabilizes (M1/M2)?
 
 ---
